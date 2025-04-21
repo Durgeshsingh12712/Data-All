@@ -1,0 +1,27 @@
+Grafana use Setup EC2 instance
+
+sudo apt-get update -y
+
+sudo apt-get upgrade
+
+#required
+
+curl -fsSL https://get.docker.com -o get-docker.sh
+
+sudo sh get-docker.sh
+
+sudo usermod -aG docker ubuntu
+
+newgrp docker
+
+docker run -d -p 3000:3000 --name=grafana grafana/grafana-oss
+
+# create inbound rule port 3000
+
+If first time grafana login
+username = admin
+password = admin
+
+if connect with promethius db then cmd
+docker run -p 9090:9090 prom/prometheus
+then port mapping 9090
